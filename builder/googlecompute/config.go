@@ -151,6 +151,9 @@ type Config struct {
 	SourceImageFamily string `mapstructure:"source_image_family" required:"true"`
 	// The project ID of the project containing the source image.
 	SourceImageProjectId string `mapstructure:"source_image_project_id" required:"false"`
+	// If true, search for image in public projects even if SourceImageProjectId is used
+	// If false, dont search for image in public projects.
+	SearchPublicImages bool `mapstructure:"search_public_images" required:"false"`
 	// The path to a startup script to run on the VM from which the image will
 	// be made.
 	StartupScriptFile string `mapstructure:"startup_script_file" required:"false"`
