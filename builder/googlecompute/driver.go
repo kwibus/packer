@@ -29,6 +29,12 @@ type Driver interface {
 	// particular image.
 	GetImage(name string, fromFamily bool) (*Image, error)
 
+	// FindImage finds an image in project
+	// If PublicFallback is true also it also search in public projects.
+	// If fromFamily is true, name designates an image family instead of a
+	// particular image.
+	FindImage(project, name string, fromFamily, publicFallback bool) (*Image, error)
+
 	// GetImageFromProject gets an image from a specific project. If fromFamily
 	// is true, name designates an image family instead of a particular image.
 	GetImageFromProject(project, name string, fromFamily bool) (*Image, error)

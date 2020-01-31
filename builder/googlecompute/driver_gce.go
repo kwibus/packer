@@ -212,8 +212,18 @@ func (d *driverGCE) DeleteDisk(zone, name string) (<-chan error, error) {
 }
 
 func (d *driverGCE) GetImage(name string, fromFamily bool) (*Image, error) {
+
+	return d.FindImage(d.projectId, name, fromFamily, true)
+
+}
+
+func (d *driverGCE) FindImage(project, name string, fromFamily, publicFallback bool) (*Image, error) {
+	if !publicFallback {
+
+		return d.GetImageFromProject(project, name, fromFamily)
+	}
 	projects := []string{
-		d.projectId,
+		project,
 		// Public projects, drawn from
 		// https://cloud.google.com/compute/docs/images
 		"centos-cloud",
