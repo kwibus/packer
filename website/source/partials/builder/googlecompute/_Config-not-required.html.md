@@ -110,6 +110,9 @@
     
 -   `source_image_project_id` (string) - The project ID of the project containing the source image.
     
+-   `search_public_images` (bool) - If true, search for image in public projects even if SourceImageProjectId is used
+    If false, dont search for image in public projects.
+    
 -   `startup_script_file` (string) - The path to a startup script to run on the VM from which the image will
     be made.
     

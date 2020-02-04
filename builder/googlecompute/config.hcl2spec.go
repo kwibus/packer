@@ -89,6 +89,7 @@ type FlatConfig struct {
 	SourceImage                  *string                    `mapstructure:"source_image" required:"true" cty:"source_image"`
 	SourceImageFamily            *string                    `mapstructure:"source_image_family" required:"true" cty:"source_image_family"`
 	SourceImageProjectId         *string                    `mapstructure:"source_image_project_id" required:"false" cty:"source_image_project_id"`
+	SearchPublicImages           *bool                      `mapstructure:"search_public_images" required:"false" cty:"search_public_images"`
 	StartupScriptFile            *string                    `mapstructure:"startup_script_file" required:"false" cty:"startup_script_file"`
 	Subnetwork                   *string                    `mapstructure:"subnetwork" required:"false" cty:"subnetwork"`
 	Tags                         []string                   `mapstructure:"tags" required:"false" cty:"tags"`
@@ -189,6 +190,7 @@ func (*FlatConfig) HCL2Spec() map[string]hcldec.Spec {
 		"source_image":                    &hcldec.AttrSpec{Name: "source_image", Type: cty.String, Required: false},
 		"source_image_family":             &hcldec.AttrSpec{Name: "source_image_family", Type: cty.String, Required: false},
 		"source_image_project_id":         &hcldec.AttrSpec{Name: "source_image_project_id", Type: cty.String, Required: false},
+		"search_public_images":            &hcldec.AttrSpec{Name: "search_public_images", Type: cty.Bool, Required: false},
 		"startup_script_file":             &hcldec.AttrSpec{Name: "startup_script_file", Type: cty.String, Required: false},
 		"subnetwork":                      &hcldec.AttrSpec{Name: "subnetwork", Type: cty.String, Required: false},
 		"tags":                            &hcldec.AttrSpec{Name: "tags", Type: cty.List(cty.String), Required: false},
